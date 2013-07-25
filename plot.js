@@ -3,7 +3,7 @@
 
 // Global variables
 var margins = [10, 10, 10, 10],
-    w       = 960,
+    w       = 1200,
     h       = 500,
     padding = 30,
     x       = d3.scale.linear().domain([0,1]).range([padding,w-padding]),
