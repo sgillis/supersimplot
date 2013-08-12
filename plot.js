@@ -105,6 +105,21 @@ function onclick(){
     d3.select(this).classed('selected', true);
     d3.select('body').append('img')
       .attr('src', function(d) { return file; })
-      .attr('file', file);
+      .attr('file', file)
+      .on('click', image_click);
   }
+}
+
+function image_click(){
+  // Find the corresponding curve
+  var file = d3.select(this).attr('file');
+  if(file=='plot/initial_condition.png'){
+    file = 'plot/world_00000000.png';
+  }
+  var world = file.slice(5, file.length - 4);
+  curves = d3.selectAll('.curve').forEach(function(d,i){
+    // if(d.classed('selected')){
+    //   console.log(d);
+    // }
+  });
 }
