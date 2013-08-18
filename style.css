@@ -27,16 +27,20 @@ svg {
   stroke-width                 : 1.0;
   opacity                      : 0.7;
 }
-.curve.active {
+.curve.red {
   stroke                       : red;
-  stroke-width                 : 2.0;
+}
+.curve.green {
+  stroke                       : green;
+}
+.curve.blue {
+  stroke                       : blue;
 }
 .curve.selected {
-  stroke                       : blue;
   stroke-width                 : 1.5;
 }
-.curve.selected.active {
-  stroke                       : red;
+.curve.active {
+  stroke-width                 : 2.0;
 }
 /* Configure images */
 img {

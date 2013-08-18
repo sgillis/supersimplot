@@ -30,6 +30,21 @@ var yAxis = d3.svg.axis()
               .orient('left')
               .ticks(12);
 
+// Returns the colorclass of a curve based on the vortices
+// Classes can be red, green or blue
+function getColorClass(vortices){
+  if(vortices[0]==vortices[1] && vortices[0]==vortices[2]){
+    var colorclass = 'red';
+  } else if (vortices[0]<vortices[1] && vortices[0]<vortices[2]){
+    var colorclass = 'green';
+  } else if (vortices[0]>vortices[1] && vortices[0]>vortices[2]){
+    var colorclass = 'blue';
+  } else {
+    var colorclass = 'uneven';
+  }
+  return colorclass
+}
+
 // Get the data and draw it
 var data;
 d3.json('raw_curves.json', function(jsondata){
@@ -43,6 +58,10 @@ d3.json('raw_curves.json', function(jsondata){
     curve_panel.append("svg:path")
       .attr('d', line(path))
       .attr('class','curve')
+      .classed('walls', data[i].walls)
+      .classed('no_walls', !data[i].walls)
+      .attr('vortices', data[i].vortices.join())
+      .classed(getColorClass(data[i].vortices), true)
       .attr('file', data[i].file.substring(0,data[i].file.length-5))
       .on('mouseover', onmouseover)
       .on('mouseout', onmouseout)
