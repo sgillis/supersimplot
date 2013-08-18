@@ -111,15 +111,19 @@ function onclick(){
 }
 
 function image_click(){
-  // Find the corresponding curve
+  // Find the corresponding curve and remove it
   var file = d3.select(this).attr('file');
   if(file=='plot/initial_condition.png'){
     file = 'plot/world_00000000.png';
   }
   var world = file.slice(5, file.length - 4);
-  curves = d3.selectAll('.curve').forEach(function(d,i){
-    // if(d.classed('selected')){
-    //   console.log(d);
-    // }
-  });
+  curves = d3.selectAll('.curve')[0];
+  for(var i=0; i<curves.length; i++){
+    var curve = d3.select(curves[i]);
+    if(curve.attr('file')==world){
+      curve.classed('selected', false);
+    }
+  }
+  // Remove the image
+  d3.select(this).remove();
 }
