@@ -1,3 +1,10 @@
+#infobox {
+  border                       : 1px solid black;
+  padding                      : 20px;
+  margin                       : 20px;
+  width                        : 800px;
+}
+
 svg {
   border                       : 1px solid black;
 }
@@ -35,6 +42,9 @@ svg {
 }
 .curve.blue {
   stroke                       : blue;
+}
+.curve.magenta {
+  stroke                       : magenta;
 }
 .curve.selected {
   stroke-width                 : 1.5;
