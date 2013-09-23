@@ -35,7 +35,7 @@ var yAxis = d3.svg.axis()
 function getColorClass(vortices, walls){
   if(vortices[0]==vortices[1] && vortices[0]==vortices[2]){
     console.log(walls);
-    if(walls){
+    if(!walls){
       var colorclass = 'red';
     } else {
       var colorclass = 'magenta';
